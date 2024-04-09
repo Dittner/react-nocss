@@ -12,6 +12,8 @@
     "esModuleInterop": true,
     "noEmit": false
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "build"]
+  "include": [
+    "src/lib"
+  ],
+  "exclude": ["node_modules", "build", "public"]
 }

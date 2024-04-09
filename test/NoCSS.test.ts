@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals'
-import {abbreviations} from "../src/NoCSS";
+import {abbreviations} from "../src/lib/NoCSS";
 
 describe('NoCSS module', () => {
   test('check unique abbreviations', () => {

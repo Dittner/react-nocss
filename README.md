@@ -1,5 +1,3 @@
-# react-nocss
-
 ## NoCSS
 + __NoCSS__ is a CSS-in-JSX-lib, that enables developers to implement UI in a JSX/TSX-module without using CSS, SASS and BEM convention;
 + Unlike popular CSS-frameworks or CSS-libraries (e.g. _Teilwind_, _Ant Design_), __NoCSS__ does not provide ready-made components. Nevertheless, it offers a lightweight, flexible and powerful toolkit that helps us to build original UI more quickly and safely;
@@ -31,6 +29,95 @@ Direct interaction with CSS inevitably produces a lot of duplications and style 
 Converting CSS rules into a JS object, as happens in [JSS library](https://cssinjs.org/), allows us to get rid of redundant CSS files.
 However, styles declared in a JS object remain isolated from JSX components. Thus, the problem with the split module remains in JSS unresolved. In addition, declaring CSS properties in a JS object has a negative impact on readability.
 Therefore, the main goal of NoCSS is to completely abandon CSS modules and CSS syntax by adding an abstract layer between CSS and JSX. When building a UI-component, we can now use only JSX syntax and only one module.
+
+# Example
+
+![image info](./public/nocss-example.png)
+```ts
+class Person {
+  readonly name: string
+  readonly description: string
+  readonly photo: string
+  readonly wikiLink: string
+
+  constructor(name: string, description: string, photo: string, wikiLink: string) {
+    this.name = name
+    this.description = description
+    this.photo = photo
+    this.wikiLink = wikiLink
+  }
+}
+
+const chaplin = new Person(
+  'Charlie Chaplin',
+  'British comedian, producer, writer, director ... in motion-picture history.',
+  'chaplin.jpg',
+  'https://en.wikipedia.org/wiki/Charlie_Chaplin')
+```
+
+```tsx
+const App = () => {
+  return (
+    <PersonCard person={chaplin}/>
+  )
+}
+
+interface CardProps {
+  person: Person
+}
+
+const PersonCard = (props: CardProps) => {
+  const person = props.person
+  const theme = themeManager.theme
+
+  return (
+    <HStack width="600px" height='300px'
+            padding='20px' gap="20px"
+            borderColor={theme.text50}
+            marginBottom='40px'
+            shadow={'5px 5px 0 0 ' + theme.text50}>
+
+      <Image src={person.photo}
+             alt="Person photo"
+             height='100%'/>
+
+      <VStack width='100%' height='100%'
+              halign='center'>
+        <Label width='100%' textAlign='center'
+               textColor={theme.white}
+               text={person.name}
+               fontWeight='bold'
+               fontSize='1.25rem'/>
+
+        <Label width='100%'
+               textColor={theme.text + 'cc'}
+               fontSize='0.9rem'
+               text={person.description}/>
+
+        <Spacer/>
+
+        <NoCSSLink title='Read more'
+                   link={person.wikiLink}
+                   textColor='#6679d7'
+                   hoverState={state => {
+                     state.textDecoration = 'underline'
+                   }}/>
+
+      </VStack>
+    </HStack>
+  )
+}
+
+```
+# To see more examples
+```cli
+git clone https://github.com/Dittner/react-nocss.git
+```
+```cli
+cd PROJECT_FOLDER/react-nocss
+npm install
+npm run demo
+```
 
 # Install
 ```cli

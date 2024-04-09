@@ -1,7 +1,7 @@
 {
   "name": "react-nocss",
   "description": "CSS-in-JSX-lib, that enables developers to implement UI in a JSX/TSX-module without using CSS, SASS and BEM convention",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "./dist/cjs/NoCSS.js",
   "module": "./dist/esm/NoCSS.js",
   "types": "./dist/NoCSS.d.ts",
@@ -16,8 +16,8 @@
   },
   "keywords": [
     "react",
-    "state managment",
-    "observable"
+    "CSS-in-JSX",
+    "NoCSS"
   ],
   "author": "Alexander Dittner",
   "license": "MIT",
@@ -32,11 +32,16 @@
     "@types/react-dom": "^18.2.24",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router": "^6.11.1",
+    "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "prismjs": "^1.29.0",
+    "react-markdown": "^8.0.7"
   },
   "scripts": {
+    "demo": "PUBLIC_URL=/ react-scripts start",
     "test": "jest",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc --module es2015 --target es5 --outDir dist/esm",
