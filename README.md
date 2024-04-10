@@ -31,7 +31,8 @@ However, styles declared in a JS object remain isolated from JSX components. Thu
 Therefore, the main goal of NoCSS is to completely abandon CSS modules and CSS syntax by adding an abstract layer between CSS and JSX. When building a UI-component, we can now use only JSX syntax and only one module.
 
 # Example
-<img src="public/nocss-example.png" alt="screenshot"/>
+
+![screenshot](public/nocss-example.png 'Chaplin')
 
 ```ts
 class Person {
