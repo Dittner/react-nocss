@@ -32,7 +32,7 @@ Therefore, the main goal of NoCSS is to completely abandon CSS modules and CSS s
 
 # Example
 
-![screenshot!](./public/nocss-example.png)
+![screenshot!](public/nocss-example.png)
 ```ts
 class Person {
   readonly name: string
