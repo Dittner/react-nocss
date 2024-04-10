@@ -1,12 +1,6 @@
 import * as React from 'react'
 import {buildClassName, StylableComponentProps} from "../NoCSS";
 
-/*
-*
-* STACK
-*
-* */
-
 export type StackHAlign = 'left' | 'right' | 'center' | 'stretch'
 export type StackVAlign = 'top' | 'center' | 'base' | 'bottom' | 'stretch'
 

@@ -12,7 +12,7 @@ export interface ButtonProps extends StylableComponentProps {
   disabledState?: (state: StylableComponentProps) => void
 }
 
-export const NoCSSButton = (props: ButtonProps) => {
+const NoCSSButton = (props: ButtonProps) => {
   if ('visible' in props && !props.visible) return <></>
   let className = buildClassName(props)
   if ('className' in props) className += ' ' + props.className
@@ -85,7 +85,7 @@ export interface SwitcherProps {
   onClick?: () => void
 }
 
-export const NoCSSSwitcher = (props: SwitcherProps) => {
+export const Switcher = (props: SwitcherProps) => {
   const width = props.width ?? 34
   const height = props.height ?? 22
   const borderWidth = props.borderWidth ?? 3

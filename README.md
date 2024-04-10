@@ -96,13 +96,12 @@ const PersonCard = (props: CardProps) => {
 
         <Spacer/>
 
-        <NoCSSLink title='Read more'
-                   link={person.wikiLink}
-                   textColor='#6679d7'
-                   hoverState={state => {
-                     state.textDecoration = 'underline'
-                   }}/>
-
+        <LinkButton title='Read more'
+                    link={person.wikiLink}
+                    textColor='#6679d7'
+                    hoverState={state => {
+                      state.textDecoration = 'underline'
+                    }}/>
       </VStack>
     </HStack>
   )

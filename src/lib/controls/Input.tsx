@@ -5,12 +5,6 @@ import {buildClassName, StylableComponentProps} from "../NoCSS";
 const TEXT_COLOR = '#000000'
 const SELECTION_COLOR = '#0e93ff'
 
-/*
-*
-* INPUT
-*
-* */
-
 export interface InputProtocol {
   value: string
 }

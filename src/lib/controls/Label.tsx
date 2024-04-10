@@ -1,12 +1,6 @@
 import * as React from 'react'
 import {buildClassName, StylableComponentProps} from "../NoCSS";
 
-/*
-*
-* LABEL
-*
-* */
-
 type LabelType = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 export interface LabelProps extends StylableComponentProps{
   text?: string

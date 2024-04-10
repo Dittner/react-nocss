@@ -9,7 +9,7 @@ import {Label} from "../../lib/controls/Label";
 import {Image} from "../../lib/controls/Image";
 import {HStack, VStack} from "../../lib/controls/Container";
 import {Spacer} from "../../lib/controls/Spacer";
-import {NoCSSLink} from "../../lib/controls/Link";
+import {LinkButton} from "../../lib/controls/Link";
 
 class Person {
   readonly name: string
@@ -79,13 +79,12 @@ const PersonCard = (props: CardProps) => {
 
         <Spacer/>
 
-        <NoCSSLink title='Read more'
-                   link={person.wikiLink}
-                   textColor='#6679d7'
-                   hoverState={state => {
-                     state.textDecoration = 'underline'
-                   }}/>
-
+        <LinkButton title='Read more'
+                    link={person.wikiLink}
+                    textColor='#6679d7'
+                    hoverState={state => {
+                      state.textDecoration = 'underline'
+                    }}/>
       </VStack>
     </HStack>
   )
@@ -156,13 +155,12 @@ const PersonCard = (props: CardProps) => {
 
         <Spacer/>
 
-        <NoCSSLink title='Read more'
-                   link={person.wikiLink}
-                   textColor='#6679d7'
-                   hoverState={state => {
-                     state.textDecoration = 'underline'
-                   }}/>
-
+        <LinkButton title='Read more'
+                    link={person.wikiLink}
+                    textColor='#6679d7'
+                    hoverState={state => {
+                      state.textDecoration = 'underline'
+                    }}/>
       </VStack>
     </HStack>
   )

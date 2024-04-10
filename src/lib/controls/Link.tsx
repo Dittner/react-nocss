@@ -8,7 +8,7 @@ export interface LinkProps extends StylableComponentProps {
   visible?: boolean
 }
 
-export const NoCSSLink = (props: LinkProps) => {
+export const LinkButton = (props: LinkProps) => {
   if ('visible' in props && !props.visible) return <></>
   let className = buildClassName(props)
   if ('className' in props) className += ' ' + props.className
