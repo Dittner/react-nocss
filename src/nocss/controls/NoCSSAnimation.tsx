@@ -12,7 +12,7 @@ export const NoCSSAnimation = ({ theme }: { theme: GlobalTheme }) => {
   return <NoCSSControlView controlLink='animation'
                            theme={theme}
                            title='Animation'
-                           subTitle='<button>'>
+                           subTitle='transition'>
 
     <MarkdownBlock title="1. Transition of a button's state"
                    markdown1={block1NoCSSTxt}
@@ -33,7 +33,7 @@ export const NoCSSAnimation = ({ theme }: { theme: GlobalTheme }) => {
 
     </MarkdownBlock>
 
-    <MarkdownBlock title="2. Animate a definite property"
+    <MarkdownBlock title="2. Animation of a specific property"
                    markdown1={block2NoCSSTxt}
                    theme={theme}>
 

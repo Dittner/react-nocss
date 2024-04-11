@@ -13,7 +13,7 @@ export const NoCSSStylableComponent = ({theme}: { theme: GlobalTheme }) => {
                            title='Stylable Component'
                            subTitle='<div>'>
 
-    <MarkdownBlock title="1. We can attach a style to a UIComponent only in a react-function by default"
+    <MarkdownBlock title="1. By default we can attach a style to a UIComponent only in a react-function"
                    markdown1={block1NoCSSTxt}
                    theme={theme}>
       <UIComponent title='This interface offers only a title-property'/>
