@@ -447,7 +447,7 @@ export const TextInput = (props: TextInputProps) => {
 *
 * */
 
-interface TextAreaProps extends StylableComponentProps {
+export interface TextAreaProps extends StylableComponentProps {
   text?: string
   rows?: number
   lineHeight?: string
@@ -572,11 +572,7 @@ interface SpacerProps {
   visible?: boolean
 }
 
-export const Spacer = ({
-                         width,
-                         height,
-                         visible = true
-                       }: SpacerProps) => {
+export const Spacer = ({ width, height, visible = true}: SpacerProps) => {
   if (!visible) return <></>
 
   const style: any = {}

@@ -1,7 +1,7 @@
 {
   "name": "react-nocss",
   "description": "CSS-in-JSX-lib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dittner/react-nocss"
