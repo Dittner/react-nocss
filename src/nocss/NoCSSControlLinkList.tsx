@@ -3,8 +3,7 @@ import {stylable} from "../lib/NoCSS";
 import {themeManager} from "./ThemeManager";
 import {useNavigate} from "react-router";
 import {ControlLink, noCSSControlLinks} from "./NoCSSPage";
-import {VStack} from "../lib/controls/Container";
-import {Label} from "../lib/controls/Label";
+import {Label, VStack} from "../lib/NoCSSComponents";
 
 export const NoCSSControlLinkList = stylable(() => {
   const theme = themeManager.theme

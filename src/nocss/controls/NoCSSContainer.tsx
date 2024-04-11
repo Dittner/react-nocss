@@ -4,12 +4,19 @@ import 'prismjs/components/prism-tsx'
 import 'prismjs/components/prism-css'
 import 'prismjs/components/prism-markup'
 import {useState} from "react";
-import {HStack, StackHAlign, StackProps, StackVAlign, VStack} from "../../lib/controls/Container";
+import {
+  Button,
+  HStack,
+  Label,
+  Rectangle,
+  StackHAlign,
+  StackProps,
+  StackVAlign,
+  VStack
+} from "../../lib/NoCSSComponents";
 import {GlobalTheme} from "../ThemeManager";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
-import {Label} from "../../lib/controls/Label";
-import {Button} from "../../lib/controls/Button";
-import {Rectangle} from "../../lib/controls/Rectangle";
+
 
 
 export const NoCSSContainer = ({ theme }: { theme: GlobalTheme }) => {

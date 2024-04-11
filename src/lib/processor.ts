@@ -1,4 +1,4 @@
-import { abbreviations, type RulePriority } from './NoCSS'
+import { abbreviations, type RulePriority } from './core'
 
 export class StyleSheetProcessor {
   private readonly hash = new Map<PseudoClassType, PseudoClass>()

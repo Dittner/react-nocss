@@ -14,13 +14,12 @@ import { NoCSSInput } from './controls/NoCSSInput'
 import ReactMarkdown from 'react-markdown'
 import { NoCSSAnimation } from './controls/NoCSSAnimation'
 import { useLocation } from 'react-router-dom'
-import {VStack} from "../lib/controls/Container";
 import {themeManager} from "./ThemeManager";
 import {stylable} from "../lib/NoCSS";
 import {NoCSSControlLinkList} from "./NoCSSControlLinkList";
 import {NoCSSStylableComponent} from "./controls/NoCSSStylableComponent";
-import {Image} from "../lib/controls/Image";
 import {NoCSSImage} from "./controls/NoCSSImage";
+import {VStack} from "../lib/NoCSSComponents";
 
 export type ControlLink = 'intro' | 'label' | 'button' | 'container' | 'spacer' | 'input' | 'animation' | 'stylable' | 'image'
 export const noCSSControlLinks = Array.of<ControlLink>('label', 'button', 'container', 'spacer', 'input', 'animation', 'stylable', 'image')

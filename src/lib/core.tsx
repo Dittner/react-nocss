@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {
   type PseudoClassType, StyleSheetProcessor
-} from './NoCSSPseudoClass'
+} from './processor'
 
 export const abbreviations: Record<string, string> = {
   'align-items': 'A',

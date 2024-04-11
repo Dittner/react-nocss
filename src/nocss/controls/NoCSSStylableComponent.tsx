@@ -5,7 +5,7 @@ import 'prismjs/components/prism-css'
 import 'prismjs/components/prism-markup'
 import {GlobalTheme} from "../ThemeManager";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
-import {Label} from "../../lib/controls/Label";
+import {Label} from "../../lib/NoCSSComponents";
 import {stylable} from "../../lib/NoCSS";
 
 export const NoCSSStylableComponent = ({theme}: { theme: GlobalTheme }) => {
