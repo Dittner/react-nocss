@@ -1,4 +1,4 @@
-import {buildRule, StylableComponentProps} from "../lib/NoCSS";
+import {buildRule, StylableComponentProps} from "react-nocss";
 
 export interface GlobalTheme {
   id: string

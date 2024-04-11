@@ -6,11 +6,9 @@ import 'prismjs/components/prism-markup'
 import {GlobalTheme} from "../ThemeManager";
 import {useState} from "react";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
-import {HStack, Label, TextArea, TextInput, TextInputProps, VStack} from "../../lib/NoCSSComponents";
-
+import {HStack, Label, TextArea, TextInput, TextInputProps, VStack} from "react-nocss";
 
 export const NoCSSInput = ({theme}: { theme: GlobalTheme }) => {
-  console.log('new NoCSSInput')
   const [enteredName, setEnteredName] = useState('')
   const [enteredPwd, setEnteredPwd] = useState('')
   const [nameProtocol] = useState({value: ''})

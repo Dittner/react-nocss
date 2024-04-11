@@ -1,7 +1,7 @@
 {
   "name": "react-nocss",
   "description": "CSS-in-JSX-lib",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dittner/react-nocss"
@@ -35,6 +35,7 @@
     "react-router": "^6.11.1",
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
+    "react-nocss": "^1.0.2",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "prismjs": "^1.29.0",

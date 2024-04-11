@@ -490,8 +490,6 @@ const defTextAreaProps = {
 
 export const TextArea = (props: TextAreaProps) => {
   if ('visible' in props && !props.visible) return <></>
-
-  console.log('new TextArea')
   return (
     <NoCSSTextArea borderColor={defTextAreaProps.borderColor}
                    bgColor={defTextAreaProps.bgColor}

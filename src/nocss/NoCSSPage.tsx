@@ -15,17 +15,15 @@ import ReactMarkdown from 'react-markdown'
 import { NoCSSAnimation } from './controls/NoCSSAnimation'
 import { useLocation } from 'react-router-dom'
 import {themeManager} from "./ThemeManager";
-import {stylable} from "../lib/NoCSS";
 import {NoCSSControlLinkList} from "./NoCSSControlLinkList";
 import {NoCSSStylableComponent} from "./controls/NoCSSStylableComponent";
 import {NoCSSImage} from "./controls/NoCSSImage";
-import {VStack} from "../lib/NoCSSComponents";
+import {stylable, VStack} from "react-nocss";
 
 export type ControlLink = 'intro' | 'label' | 'button' | 'container' | 'spacer' | 'input' | 'animation' | 'stylable' | 'image'
 export const noCSSControlLinks = Array.of<ControlLink>('label', 'button', 'container', 'spacer', 'input', 'animation', 'stylable', 'image')
 
 export const NoCSSPage = () => {
-  console.log('new NoCSSPage')
   const theme = themeManager.theme
   const {
     pathname,
@@ -41,8 +39,6 @@ export const NoCSSPage = () => {
         const element = document.getElementById(hash)
         if (element) {
           const elementPos = Math.round(element.getBoundingClientRect().top + document.documentElement.scrollTop)
-          // element.scrollIntoView();
-          console.log('elementPos=', elementPos)
           window.scrollTo(0, elementPos < 100 ? 0 : elementPos - 100)
         }
       }, 0)
@@ -68,10 +64,9 @@ export const NoCSSPage = () => {
   </VStack>
 }
 
-//TODO Do not remove MarkdownText: the reference on Prism.js is necessary for subpages
 export const MarkdownText = stylable(({ value }: { value: string }) => {
   useEffect(() => {
-    console.log('--Prism.highlightAll')
+    //console.log('--Prism.highlightAll')
     Prism.highlightAll()
   }, [value])
   return <ReactMarkdown className={themeManager.theme.id} key={value}>{value}</ReactMarkdown>

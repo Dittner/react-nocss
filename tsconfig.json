@@ -13,8 +13,8 @@
     "noEmit": false
   },
   "include": [
-    "src/lib"
+    "lib"
   ],
-  "exclude": ["node_modules", "build", "public"]
+  "exclude": ["node_modules", "build", "src"]
 }
 

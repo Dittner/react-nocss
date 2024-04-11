@@ -6,11 +6,9 @@ import 'prismjs/components/prism-markup'
 import {GlobalTheme} from "../ThemeManager";
 import {useState} from "react";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
-import {Button, ButtonProps} from "../../lib/NoCSSComponents";
-import {Label} from "../../lib/NoCSSComponents";
+import {Button, ButtonProps, Label} from "react-nocss";
 
 export const NoCSSButton = ({ theme }: { theme: GlobalTheme }) => {
-  console.log('new NoCSSButton')
   const [isSelected, setSelected] = useState(true)
 
   return <NoCSSControlView controlLink='button'

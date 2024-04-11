@@ -5,12 +5,10 @@ import 'prismjs/components/prism-css'
 import 'prismjs/components/prism-markup'
 import {GlobalTheme} from "../ThemeManager";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
-import {Button} from "../../lib/NoCSSComponents";
+import {Button} from "react-nocss";
 
 
 export const NoCSSAnimation = ({ theme }: { theme: GlobalTheme }) => {
-  console.log('new NoCSSAnimation')
-
   return <NoCSSControlView controlLink='animation'
                            theme={theme}
                            title='Animation'

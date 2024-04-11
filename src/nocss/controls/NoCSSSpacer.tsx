@@ -5,10 +5,9 @@ import 'prismjs/components/prism-css'
 import 'prismjs/components/prism-markup'
 import {GlobalTheme} from "../ThemeManager";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
-import {HStack, Label, Spacer, VStack} from "../../lib/NoCSSComponents";
+import {HStack, Label, Spacer, VStack} from "react-nocss";
 
 export const NoCSSSpacer = ({ theme }: { theme: GlobalTheme }) => {
-  console.log('new NoCSSSpacer')
   return <NoCSSControlView controlLink='spacer'
                            theme={theme}
                            title='Spacer'

@@ -13,14 +13,13 @@ import {
   StackProps,
   StackVAlign,
   VStack
-} from "../../lib/NoCSSComponents";
+} from "react-nocss";
 import {GlobalTheme} from "../ThemeManager";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
 
 
 
 export const NoCSSContainer = ({ theme }: { theme: GlobalTheme }) => {
-  console.log('new NoCSSContainer')
   const [valign, setValign] = useState<StackVAlign>('center')
   const [halign, setHalign] = useState<StackHAlign>('center')
   const valignValues = Array.of<StackVAlign>('top', 'center', 'bottom', 'stretch')

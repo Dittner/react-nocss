@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ControlLink, MarkdownText} from "../NoCSSPage";
 import {GlobalTheme} from "../ThemeManager";
-import {HStack, Label, Spacer, VStack} from "../../lib/NoCSSComponents";
+import {HStack, Label, Spacer, VStack} from "react-nocss";
 
 export interface NoCSSControlViewProps {
   title: string
@@ -12,7 +12,6 @@ export interface NoCSSControlViewProps {
 }
 
 export const NoCSSControlView = (props: NoCSSControlViewProps) => {
-  console.log('new NoCSSControlView, controlLink: ' + props.controlLink)
   const theme = props.theme
 
   return (
@@ -61,8 +60,6 @@ interface MarkdownBlockProps {
 }
 
 export const MarkdownBlock = (props: MarkdownBlockProps) => {
-  console.log('new MarkdownBlock')
-
   return (
     <VStack halign="stretch"
             valign="top" gap='0'
