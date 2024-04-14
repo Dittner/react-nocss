@@ -170,9 +170,7 @@ export const InputProtocolDemo = (props: TextInputProps) => {
                   }}
                   placeholderState={state => {
                     state.textColor = '#ffFFff50'
-                  }}
-                  {...props}/>
-
+                  }}/>
 
         <Button title='Clear Area'
                 paddingHorizontal='10px'
@@ -296,7 +294,7 @@ const App = () => {
 
 /*
 ==============================
-Block 2
+Block 3
 ==============================
 */
 const block3 = `\`\`\`tsx
@@ -342,9 +340,7 @@ const App = () => {
                   }}
                   placeholderState={state => {
                     state.textColor = '#ffFFff50'
-                  }}
-                  {...props}/>
-
+                  }}/>
 
         <Button title='Clear Area'
                 paddingHorizontal='10px'
