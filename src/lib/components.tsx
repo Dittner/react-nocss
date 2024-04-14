@@ -1,6 +1,6 @@
 import {buildClassName, StylableComponentProps} from "./core";
 import * as React from "react";
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {NavLink} from "react-router-dom";
 
 /*
@@ -366,6 +366,7 @@ export interface TextInputProps extends StylableComponentProps {
   onSubmitted?: (() => void) | undefined
   onCanceled?: (() => void) | undefined
   autoFocus?: boolean
+  spellCheck?: boolean
   autoCorrect?: TurnType
   autoComplete?: TurnType
   focusState?: (state: StylableComponentProps) => void
@@ -391,13 +392,13 @@ const NoCSSInput = (props: TextInputProps) => {
     }
   }
 
-  const inputRef = useCallback((input: HTMLInputElement) => {
-    if (input && props.autoFocus) {
-      setTimeout(() => {
-        input.focus()
-      }, 0)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (inputRef.current && props.protocol && props.protocol.value !== inputRef.current.value) {
+      inputRef.current.value = props.protocol.value
     }
-  }, [props.autoFocus])
+  }, [props])
 
   return (
     <input ref={inputRef}
@@ -405,6 +406,8 @@ const NoCSSInput = (props: TextInputProps) => {
            placeholder={props.placeholder}
            autoCorrect={props.autoCorrect}
            autoComplete={props.autoComplete}
+           autoFocus={props.autoFocus}
+           spellCheck={props.spellCheck}
            type={props.type}
            defaultValue={props.text ?? props.protocol?.value}
            onChange={e => {
@@ -420,6 +423,8 @@ const defInputProps = {
   textColor: TEXT_COLOR,
   borderColor: TEXT_COLOR,
   bgColor: '#ffFFff',
+  autoFocus: false,
+  spellCheck: false,
   autoCorrect: 'off' as TurnType,
   autoComplete: 'off' as TurnType,
   focusState: (state: StylableComponentProps) => {
@@ -434,6 +439,8 @@ export const TextInput = (props: TextInputProps) => {
                 textColor={defInputProps.textColor}
                 bgColor={defInputProps.bgColor}
                 borderColor={defInputProps.borderColor}
+                autoFocus={defInputProps.autoFocus}
+                spellCheck={defInputProps.spellCheck}
                 autoCorrect={defInputProps.autoCorrect}
                 autoComplete={defInputProps.autoComplete}
                 focusState={defInputProps.focusState}
@@ -455,6 +462,7 @@ export interface TextAreaProps extends StylableComponentProps {
   placeholder?: string
   caretColor?: string
   autoFocus?: boolean
+  spellCheck?: boolean
   autoCorrect?: TurnType
   autoComplete?: TurnType
   onChange?: ((value: string) => void) | undefined
@@ -463,13 +471,22 @@ export interface TextAreaProps extends StylableComponentProps {
 }
 
 const NoCSSTextArea = (props: TextAreaProps) => {
-  const className = 'className' in props ? props.className + ' ' + buildClassName(props) : buildClassName(props)
+  const className = useMemo(() => {
+    return 'className' in props ? props.className + ' ' + buildClassName(props) : buildClassName(props)
+  }, [props])
+  const ta = useRef<HTMLTextAreaElement>(null)
+
+  useEffect(() => {
+    if (ta.current && props.protocol && props.protocol.value !== ta.current.value) {
+      ta.current.value = props.protocol.value
+    }
+  }, [props])
 
   return <textarea className={className}
+                   ref={ta}
                    placeholder={props.placeholder}
-                   value={props.text ?? props.protocol?.value}
                    autoFocus={props.autoFocus}
-                   spellCheck="false"
+                   spellCheck={props.spellCheck}
                    rows={props.rows}
                    onChange={e => {
                      if (props.protocol) props.protocol.value = e.currentTarget.value
@@ -481,6 +498,7 @@ const defTextAreaProps = {
   textColor: TEXT_COLOR,
   borderColor: TEXT_COLOR,
   bgColor: '#ffFFff',
+  spellCheck: false,
   autoCorrect: 'off' as TurnType,
   autoComplete: 'off' as TurnType,
   focusState: (state: StylableComponentProps) => {
@@ -493,6 +511,7 @@ export const TextArea = (props: TextAreaProps) => {
   return (
     <NoCSSTextArea borderColor={defTextAreaProps.borderColor}
                    bgColor={defTextAreaProps.bgColor}
+                   spellCheck={defTextAreaProps.spellCheck}
                    autoCorrect={defTextAreaProps.autoCorrect}
                    autoComplete={defTextAreaProps.autoComplete}
                    focusState={defTextAreaProps.focusState}
@@ -566,7 +585,7 @@ export const LinkButton = (props: LinkProps) => {
 *
 * */
 
-interface SpacerProps {
+export interface SpacerProps {
   width?: string
   height?: string
   visible?: boolean
@@ -580,14 +599,18 @@ export const Spacer = ({ width, height, visible = true}: SpacerProps) => {
 
   if (width !== undefined) {
     style.width = width
-    style.minWidth = width
-    style.maxWidth = width
+    if(width.includes('px')) {
+      style.minWidth = width
+      style.maxWidth = width
+    }
   }
 
   if (height !== undefined) {
     style.height = height
-    style.minHeight = height
-    style.maxHeight = height
+    if(height.includes('px')) {
+      style.minHeight = height
+      style.maxHeight = height
+    }
   }
 
   return <div className={buildClassName(style)}/>

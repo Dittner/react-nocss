@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ControlLink, MarkdownText} from "../NoCSSPage";
 import {GlobalTheme} from "../ThemeManager";
-import {HStack, Label, Spacer, VStack} from "react-nocss";
+import {HStack, Label, Spacer, VStack} from "../../lib/components";
 
 export interface NoCSSControlViewProps {
   title: string

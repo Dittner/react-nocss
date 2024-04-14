@@ -13,7 +13,7 @@ import {
   StackProps,
   StackVAlign,
   VStack
-} from "react-nocss";
+} from "../../lib/components";
 import {GlobalTheme} from "../ThemeManager";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
 

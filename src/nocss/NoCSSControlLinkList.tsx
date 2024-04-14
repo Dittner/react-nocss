@@ -2,7 +2,9 @@ import * as React from 'react'
 import {themeManager} from "./ThemeManager";
 import {useNavigate} from "react-router";
 import {ControlLink, noCSSControlLinks} from "./NoCSSPage";
-import {Label, stylable, VStack} from "react-nocss";
+import {Label, VStack} from "../lib/components";
+import {stylable} from "../lib/core";
+
 
 export const NoCSSControlLinkList = stylable(() => {
   const theme = themeManager.theme

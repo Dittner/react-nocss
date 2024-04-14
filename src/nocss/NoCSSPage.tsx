@@ -6,19 +6,20 @@ import 'prismjs/components/prism-tsx'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-markup'
-import { NoCSSLabel } from './controls/NoCSSLabel'
-import { NoCSSButton } from './controls/NoCSSButton'
-import { NoCSSContainer } from './controls/NoCSSContainer'
-import { NoCSSSpacer } from './controls/NoCSSSpacer'
-import { NoCSSInput } from './controls/NoCSSInput'
 import ReactMarkdown from 'react-markdown'
 import { NoCSSAnimation } from './controls/NoCSSAnimation'
 import { useLocation } from 'react-router-dom'
 import {themeManager} from "./ThemeManager";
 import {NoCSSControlLinkList} from "./NoCSSControlLinkList";
+import {NoCSSLabel} from "./controls/NoCSSLabel";
+import {NoCSSButton} from "./controls/NoCSSButton";
+import {NoCSSContainer} from "./controls/NoCSSContainer";
+import {NoCSSSpacer} from "./controls/NoCSSSpacer";
+import {NoCSSInput} from "./controls/NoCSSInput";
 import {NoCSSStylableComponent} from "./controls/NoCSSStylableComponent";
 import {NoCSSImage} from "./controls/NoCSSImage";
-import {stylable, VStack} from "react-nocss";
+import {stylable} from "../lib/core";
+import {VStack} from "../lib/components";
 
 export type ControlLink = 'intro' | 'label' | 'button' | 'container' | 'spacer' | 'input' | 'animation' | 'stylable' | 'image'
 export const noCSSControlLinks = Array.of<ControlLink>('label', 'button', 'container', 'spacer', 'input', 'animation', 'stylable', 'image')

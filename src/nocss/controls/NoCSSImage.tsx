@@ -5,7 +5,7 @@ import 'prismjs/components/prism-css'
 import 'prismjs/components/prism-markup'
 import {GlobalTheme, themeManager} from "../ThemeManager";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
-import {HStack, Image, Label, LinkButton, Spacer, VStack} from "react-nocss";
+import {HStack, Image, Label, LinkButton, Spacer, VStack} from "../../lib/components";
 
 class Person {
   readonly name: string
