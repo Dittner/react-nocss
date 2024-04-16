@@ -5,7 +5,7 @@ import 'prismjs/components/prism-css'
 import 'prismjs/components/prism-markup'
 import {GlobalTheme, themeManager} from "../ThemeManager";
 import {MarkdownBlock, NoCSSControlView} from "./NoCSSControlView";
-import {HStack, Image, Label, LinkButton, Spacer, VStack} from "../../lib/components";
+import {HStack, Image, Label, LinkButton, Spacer, StackProps, VStack} from "../../lib/components";
 
 class Person {
   readonly name: string
@@ -37,6 +37,12 @@ export const NoCSSImage = ({theme}: { theme: GlobalTheme }) => {
                    markdown2={markdown2}
                    theme={theme}>
       <PersonCard person={chaplin}/>
+    </MarkdownBlock>
+
+    <MarkdownBlock title="Background-image"
+                   markdown1={markdown3}
+                   theme={theme}>
+      <BgImageDemo/>
     </MarkdownBlock>
   </NoCSSControlView>
 }
@@ -86,6 +92,52 @@ const PersonCard = (props: CardProps) => {
   )
 }
 
+const BgImageDemo = () => {
+  const theme = themeManager.theme
+
+  return (
+    <VStack>
+      <SimpleStack bgImageSrc='chaplin.jpg'>
+        <Label text='default'
+               bgColor={theme.pink}
+               textColor={theme.text}/>
+      </SimpleStack>
+      <SimpleStack bgImageSrc='chaplin.jpg'
+                   bgImageRepeat='no-repeat'>
+        <Label text='no-repeat'
+               bgColor={theme.pink}
+               textColor={theme.text}/>
+      </SimpleStack>
+
+      <SimpleStack bgImageSrc='chaplin.jpg'
+                   bgImageRepeat='no-repeat'
+                   bgImageSize='contain'>
+        <Label text='no-repeat contain'
+               bgColor={theme.pink}
+               textColor={theme.text}/>
+      </SimpleStack>
+
+      <SimpleStack bgImageSrc='chaplin.jpg'
+                   bgImageRepeat='no-repeat'
+                   bgImageSize='cover'>
+        <Label text='no-repeat cover'
+               bgColor={theme.pink}
+               textColor={theme.text}/>
+      </SimpleStack>
+    </VStack>
+  )
+}
+
+const SimpleStack = (props: StackProps) => {
+  return <HStack width="600px" height='300px'
+                 halign='center' valign='center'
+                 padding='20px' gap="20px"
+                 borderColor={themeManager.theme.text50}
+                 marginBottom='40px'
+                 {...props}>
+    {props.children}
+  </HStack>
+}
 
 const markdown1 = `\`\`\`ts
 class Person {
@@ -160,5 +212,55 @@ const PersonCard = (props: CardProps) => {
       </VStack>
     </HStack>
   )
+}
+\`\`\``
+
+
+const markdown3 = `\`\`\`tsx
+const App = () => {
+  const theme = themeManager.theme
+
+  return (
+    <VStack>
+      <SimpleStack bgImageSrc='chaplin.jpg'>
+        <Label text='default' 
+               bgColor={theme.pink} 
+               textColor={theme.text}/>
+      </SimpleStack>
+      <SimpleStack bgImageSrc='chaplin.jpg'
+                   bgImageRepeat='no-repeat'>
+        <Label text='no-repeat' 
+               bgColor={theme.pink} 
+               textColor={theme.text}/>
+      </SimpleStack>
+
+      <SimpleStack bgImageSrc='chaplin.jpg'
+                   bgImageRepeat='no-repeat'
+                   bgImageSize='contain'>
+        <Label text='no-repeat contain' 
+               bgColor={theme.pink} 
+               textColor={theme.text}/>
+      </SimpleStack>
+
+      <SimpleStack bgImageSrc='chaplin.jpg'
+                   bgImageRepeat='no-repeat'
+                   bgImageSize='cover'>
+        <Label text='no-repeat cover' 
+               bgColor={theme.pink} 
+               textColor={theme.text}/>
+      </SimpleStack>
+    </VStack>
+  )
+}
+
+const SimpleStack = (props: StackProps) => {
+  return <HStack width="600px" height='300px'
+                 halign='center' valign='center'
+                 padding='20px' gap="20px"
+                 borderColor={themeManager.theme.text50}
+                 marginBottom='40px'
+                 {...props}>
+    {props.children}
+  </HStack>
 }
 \`\`\``

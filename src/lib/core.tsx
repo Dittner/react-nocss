@@ -6,6 +6,10 @@ import {
 export const abbreviations: Record<string, string> = {
   'align-items': 'A',
   'background-color': 'BG',
+  'background-image': 'BI',
+  'background-attachment': 'BIA',
+  'background-repeat': 'BIR',
+  'background-size': 'BIS',
   'border': 'BO',
   'border-left': 'BL',
   'border-right': 'BR',
@@ -76,7 +80,7 @@ interface RuleBuilderInterface {
 export type RulePriority = 'high' | 'low'
 
 const RuleBuilder = (): RuleBuilderInterface => {
-  const notAllowedSymbolsInClassName = /[%. #]+/g
+  const notAllowedSymbolsInClassName = /[%. ()/#"]+/g
   const classNameHash = new Map<string, string>()
 
   // Creating of dynamic stylesheets are enabled only in Chrome (23.06.2023)
@@ -215,6 +219,11 @@ const RuleBuilder = (): RuleBuilderInterface => {
   operator.caretColor = (value: string) => { setValue('caret-color', value) }
   operator.overflow = (value: string) => { setValue('overflow', value) }
   operator.textOverflow = (value: string) => { setValue('text-overflow', value) }
+
+  operator.bgImageSrc = (value: string) => { setValue('background-image','url(' + value + ')') }
+  operator.bgImageRepeat = (value: string) => { setValue('background-repeat', value) }
+  operator.bgImageSize = (value: string) => { setValue('background-size', value) }
+  operator.bgImageAttachment = (value: string) => { setValue('background-attachment', value) }
 
   operator.animate = (value: string) => { setValue('transition', value) }
   operator.animateAll = (value: string) => { setValue('transition', 'all ' + value) }
@@ -363,6 +372,10 @@ export interface StylableComponentProps {
   letterSpacing?: string
   fontStyle?: 'normal' | 'italic'
   caretColor?: string
+  bgImageSrc?: string
+  bgImageSize?: 'cover' | 'contain' | 'auto'
+  bgImageRepeat?: 'no-repeat' | 'repeat' | 'repeat-x' |'repeat-y' | 'unset' | 'space'
+  bgImageAttachment?: 'scroll' | 'fixed' | 'unset' | 'local'
   visible?: boolean
   className?: string
   children?: any
