@@ -142,6 +142,8 @@ const RuleBuilder = (): RuleBuilderInterface => {
   operator.top = (value: string) => { setValue('top', value) }
   operator.bottom = (value: string) => { setValue('bottom', value) }
 
+  operator.display = (value: string) => { setValue('display', value) }
+
   operator.paddingLeft = (value: string) => { setValue('padding-left', value) }
   operator.paddingRight = (value: string) => { setValue('padding-right', value) }
   operator.paddingHorizontal = (value: string) => {
@@ -308,81 +310,83 @@ export const buildRule = (props: any, parentSelector: string, childSelector: str
 
 export type BorderStyle = 'solid' | 'dotted' | 'dashed' | 'double' | 'none' | 'hidden'
 export interface StylableComponentProps {
-  id?: string
-  keyValue?: string
-  width?: string
-  height?: string
-  minWidth?: string
-  minHeight?: string
-  maxWidth?: string
-  maxHeight?: string
-  gap?: string
-  top?: string
-  left?: string
-  right?: string
-  bottom?: string
-  padding?: string
-  paddingLeft?: string
-  paddingRight?: string
-  paddingHorizontal?: string
-  paddingVertical?: string
-  paddingTop?: string
-  paddingBottom?: string
-  margin?: string
-  marginLeft?: string
-  marginRight?: string
-  marginTop?: string
-  marginBottom?: string
-  marginHorizontal?: string
-  marginVertical?: string
-  wrap?: boolean
-  position?: 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky'
-  enableOwnScroller?: boolean
-  disableScroll?: boolean
-  disableHorizontalScroll?: boolean
-  disabled?: boolean
-  layer?: string //z-index
   animate?: string //'background-color 300ms'
   animateAll?: string //'300ms'
-  textColor?: string
-  textAlign?: 'left' | 'right' | 'center' | 'justify'
-  textDecoration?: 'none' | 'underline'
-  whiteSpace?: 'normal' | 'pre' | 'pre-wrap' | 'nowrap'
-  overflow?: 'auto' | 'hidden' | 'clip'
-  textOverflow?: 'auto' | 'ellipsis' | 'clip' | 'fade'
-  textTransform?: 'none' | 'uppercase' | 'capitalize' | 'lowercase'
-  transform?: string
   bgColor?: string
+  bgImageAttachment?: 'scroll' | 'fixed' | 'unset'
+  bgImageRepeat?: 'no-repeat' | 'repeat' | 'repeat-x' |'repeat-y' | 'unset' | 'space'
+  bgImageSize?: 'cover' | 'contain' | 'auto'
+  bgImageSrc?: string
   borderColor?: string
   border?: string | [string, BorderStyle, string]
+  borderBottom?: string | [string, BorderStyle, string]
   borderLeft?: string | [string, BorderStyle, string]
   borderRight?: string | [string, BorderStyle, string]
   borderTop?: string | [string, BorderStyle, string]
-  borderBottom?: string | [string, BorderStyle, string]
-  outline?: string | [string, string, string]
-  cornerRadius?: string
-  opacity?: string
-  shadow?: string // offset-x | offset-y | blur-radius | spread-radius | color
-  textShadow?: string //offset-x | offset-y | blur-radius | color
+  bottom?: string
   btnCursor?: boolean
+  caretColor?: string
+  children?: any
+  className?: string
+  cornerRadius?: string
+  disabled?: boolean
+  disableHorizontalScroll?: boolean
+  disableScroll?: boolean
+  display?: 'none' | 'block' | 'inline-block' | 'flex' | 'grid'
+  enableOwnScroller?: boolean
   fontFamily?: string
   fontSize?: string
-  fontWeight?: string
-  lineHeight?: string
-  letterSpacing?: string
   fontStyle?: 'normal' | 'italic'
-  caretColor?: string
-  bgImageSrc?: string
-  bgImageSize?: 'cover' | 'contain' | 'auto'
-  bgImageRepeat?: 'no-repeat' | 'repeat' | 'repeat-x' |'repeat-y' | 'unset' | 'space'
-  bgImageAttachment?: 'scroll' | 'fixed' | 'unset' | 'local'
-  visible?: boolean
-  className?: string
-  children?: any
+  fontWeight?: string
+  gap?: string
+  height?: string
   hoverState?: (state: StylableComponentProps) => void
+  id?: string
+  keyValue?: string
+  layer?: string //z-index
+  left?: string
+  letterSpacing?: string
+  lineHeight?: string
+  maxHeight?: string
+  maxWidth?: string
+  margin?: string
+  marginBottom?: string
+  marginHorizontal?: string
+  marginLeft?: string
+  marginRight?: string
+  marginTop?: string
+  marginVertical?: string
+  minHeight?: string
+  minWidth?: string
+  onChange?: (value:string) => void
   onClick?: () => void
-  onMouseDown?: (e: any) => void
   onDoubleClick?: (e: any) => void
+  onMouseDown?: (e: any) => void
+  opacity?: string
+  outline?: string | [string, string, string]
+  overflow?: 'auto' | 'hidden' | 'clip'
+  padding?: string
+  paddingBottom?: string
+  paddingHorizontal?: string
+  paddingLeft?: string
+  paddingRight?: string
+  paddingTop?: string
+  paddingVertical?: string
+  position?: 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky'
+  right?: string
+  shadow?: string // offset-x | offset-y | blur-radius | spread-radius | color
+  textAlign?: 'left' | 'right' | 'center' | 'justify'
+  textColor?: string
+  textDecoration?: 'none' | 'underline'
+  textTransform?: 'none' | 'uppercase' | 'capitalize' | 'lowercase'
+  textShadow?: string //offset-x | offset-y | blur-radius | color
+  textOverflow?: 'auto' | 'ellipsis' | 'clip' | 'fade'
+  transform?: string
+  top?: string
+  visible?: boolean
+  whiteSpace?: 'normal' | 'pre' | 'pre-wrap' | 'nowrap'
+  width?: string
+  wrap?: boolean
 }
 
 export const stylable = <T, X extends T & StylableComponentProps>(component: (componentProps: T) => React.JSX.Element): ((props: X) => React.JSX.Element) => {

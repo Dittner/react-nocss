@@ -1,6 +1,6 @@
 import {buildClassName, StylableComponentProps} from "./core";
 import * as React from "react";
-import {useCallback, useEffect, useMemo, useRef, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import {NavLink} from "react-router-dom";
 
 /*
@@ -114,6 +114,21 @@ export const Button = (props: ButtonProps) => {
                       bgColor={defBtnProps.bgColor}
                       hoverState={defBtnProps.hoverState}
                       {...props}/>
+}
+
+export interface LinkButtonProps extends StylableComponentProps {
+  title: string,
+  link: string,
+  visible?: boolean
+}
+
+export const LinkButton = (props: LinkButtonProps) => {
+  if ('visible' in props && !props.visible) return <></>
+  let className = buildClassName(props)
+  if ('className' in props) className += ' ' + props.className
+
+  return <NavLink className={className}
+                  to={props.link}>{props.title}</NavLink>
 }
 
 /*
@@ -362,7 +377,6 @@ export interface TextInputProps extends StylableComponentProps {
   fontSize?: string
   placeholder?: string
   caretColor?: string
-  onChange?: ((value: string) => void) | undefined
   onSubmitted?: (() => void) | undefined
   onCanceled?: (() => void) | undefined
   autoFocus?: boolean
@@ -421,7 +435,6 @@ const NoCSSInput = (props: TextInputProps) => {
 const defInputProps = {
   type: 'text' as InputType,
   textColor: TEXT_COLOR,
-  borderColor: TEXT_COLOR,
   bgColor: '#ffFFff',
   autoFocus: false,
   spellCheck: false,
@@ -438,7 +451,6 @@ export const TextInput = (props: TextInputProps) => {
     <NoCSSInput type={defInputProps.type}
                 textColor={defInputProps.textColor}
                 bgColor={defInputProps.bgColor}
-                borderColor={defInputProps.borderColor}
                 autoFocus={defInputProps.autoFocus}
                 spellCheck={defInputProps.spellCheck}
                 autoCorrect={defInputProps.autoCorrect}
@@ -465,7 +477,6 @@ export interface TextAreaProps extends StylableComponentProps {
   spellCheck?: boolean
   autoCorrect?: TurnType
   autoComplete?: TurnType
-  onChange?: ((value: string) => void) | undefined
   focusState?: (state: StylableComponentProps) => void
   placeholderState?: (state: StylableComponentProps) => void
 }
@@ -558,26 +569,6 @@ export const Image = (props: ImageProps) => {
   )
 }
 
-/*
-*
-* LINK
-*
-* */
-
-export interface LinkProps extends StylableComponentProps {
-  title: string,
-  link: string,
-  visible?: boolean
-}
-
-export const LinkButton = (props: LinkProps) => {
-  if ('visible' in props && !props.visible) return <></>
-  let className = buildClassName(props)
-  if ('className' in props) className += ' ' + props.className
-
-  return <NavLink className={className}
-                  to={props.link}>{props.title}</NavLink>
-}
 
 /*
 *
