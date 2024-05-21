@@ -9,7 +9,7 @@ import {NavLink} from "react-router-dom";
 *
 **/
 
-type LabelType = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+type LabelType = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span'
 export interface LabelProps extends StylableComponentProps{
   text?: string
   lineHeight?: string
@@ -37,6 +37,7 @@ export const Label = (props: LabelProps) => {
 
   switch (props.type) {
     case 'p': return <p id={id} className={className} onClick={props.onClick}>{props.text ?? props.children}</p>
+    case 'span': return <span id={id} className={className} onClick={props.onClick}>{props.text ?? props.children}</span>
     case 'h1': return <h1 id={id} className={className} onClick={props.onClick}>{props.text ?? props.children}</h1>
     case 'h2': return <h2 id={id} className={className} onClick={props.onClick}>{props.text ?? props.children}</h2>
     case 'h3': return <h3 id={id} className={className} onClick={props.onClick}>{props.text ?? props.children}</h3>
@@ -474,6 +475,7 @@ export interface TextAreaProps extends StylableComponentProps {
   placeholder?: string
   caretColor?: string
   autoFocus?: boolean
+  keepFocus?: boolean
   spellCheck?: boolean
   autoCorrect?: TurnType
   autoComplete?: TurnType
@@ -490,6 +492,8 @@ const NoCSSTextArea = (props: TextAreaProps) => {
   useEffect(() => {
     if (ta.current && props.protocol && props.protocol.value !== ta.current.value) {
       ta.current.value = props.protocol.value
+      if(props.keepFocus)
+        ta.current.focus()
     }
   }, [props])
 
